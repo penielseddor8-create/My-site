@@ -1,0 +1,238 @@
+:root {
+    --main-color: #d2691e;      /* chocolate */
+    --dark-color: #1a1a1a;
+    --light-color: #ffffff;
+    --accent-color: #ffb347;    /* orange doux */
+}
+body {
+    position: relative;
+    background-image: url("images/Yummy.jpg"); /* Chemin de l’image de fond */
+    background-size: cover;        /* Limage couvre toute la page */
+    background-position: center;   /* Centre l’image */
+    background-repeat: no-repeat;  /* Empêche la répétition de l’image */
+    
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    margin: 0px;
+    margin-top: 50px;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding-top: 180px;
+    color: white;
+}
+.main{
+    display: inline-block;
+    border-radius: 5px;
+    color: black;
+    background-color: white;
+}
+h1, h2, h3 {
+    font-size: 2.5rem;
+    color: var(--main-color);
+}
+p{
+    font-size: 18px;
+}
+/*background: linear-gradient(
+    rgba(0,0,0,0.4), rgba(0,0,0,0.6)
+);*/
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5); /* Couleur de superposition avec une opacité de 0.5 */
+    z-index: -1; /* Place la superposition derrière le contenu */
+}
+.menu{
+    display: inline-block;
+    flex-direction: column;
+    padding: auto;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.about{
+    background-image: url("images/food.jpg") ;
+}
+.article{
+    display: inline-block;
+    flex-direction: column;
+    background-color: white;
+    color: black;
+    padding: auto;
+    margin: 80px;
+}
+.home {
+    background-image: url("images/Transform\ Your\ Restaurant\ Into\ a\ Premium\ Dining\ Destination!.jpg");
+}
+.num {
+    background-image: url("images/Plant-Based Bliss_ 200 Recipes for a Greener Plate.jpg");
+}
+.num-h2{
+    color: blue;
+}
+.part{
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.8); /* Couleur de fond avec une opacité de 0.8 */
+    padding: 20px;
+    color: black;
+    border-radius: 10px;
+    max-width: 600px;
+    backdrop-filter: blur(5px);
+    margin: 20px auto;
+}
+.w-cta{
+    display: inline-block;
+    background-color: rgb(30, 189, 30);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: black;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+w-cta:hover{
+        transform: scale(1.05);
+}
+.logo-text{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 50px;
+
+}
+.site-title{
+    font-size:1.5rem;
+    font-weight:bold;
+    color:var(--accent-color)
+
+}
+.header{
+    position: fixed;
+    top: 0;
+    left:0;
+    backdrop-filter: blur(10px);
+    box-sizing:border-box;
+    
+    width: 100%;
+    min-height: 80px;
+    background: rgba(0, 0, 0, 0.6);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    /*background-color: chocolate;*/
+    z-index: 10000;
+}
+.logo{
+    position: fixed;
+    top: 20px;
+    width: 80px;
+    height: 80px;
+}
+.cta{
+    display: inline-block;
+    padding: 12px 25px;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+    background-color: #007bff;
+
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+.cta:hover {
+    transform: scale(1.1);
+}
+/* hamburger toujours visible */
+.hamburger {
+    top: 20px;
+    right: 20px;
+    position: relative;
+    display: block; 
+    font-size: 30px;
+    cursor: pointer;
+    color: orange;
+    z-index: 11000;
+}
+.hamburger-span{
+    background: white;
+}
+.bar{
+    display: block;
+    width: 30px;
+    height: 4px;
+    margin: 5px 0;
+    background-color: white;
+}
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+
+/* menu caché (hors écran) */
+.nav{
+    position:absolute;
+    top: 0;
+    right: 0;
+    /*inset: 0;*/
+    width: 200px;
+    max-width: 90vw;
+    height: 100vh;
+
+    /*background-color: chocolate;*/
+    padding: 15px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.95); /* chocolate transparent */
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+
+    transform: translateX(100%);
+    opacity: 0;
+
+    transition: all 0.3s ease;
+}
+nav ul{
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    margin: 0;
+}
+nav ul li{
+    margin: 20px 0;
+}
+/* menu visible */
+.nav.active {
+    transform: translateX(0);
+    pointer-events: all;
+    opacity: 1;
+}
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    margin: 10px 0;
+    transition:0.3s
+}
+.nav a:hover {
+    color: orange;
+    transform: scale(1.2);
+}

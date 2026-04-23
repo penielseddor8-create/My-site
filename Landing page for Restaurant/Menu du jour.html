@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu du jour</title>
+    <link rel="stylesheet" href="body.css">
+    
+</head>
+
+<body>
+    <div id="header"></div>
+    <script>
+        fetch("header.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("header").innerHTML=data;
+        });
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    
+    fetch("header.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("header").innerHTML = data;
+
+            const hamburger = document.getElementById("hamburger");
+            const nav = document.getElementById("nav");
+
+            hamburger.addEventListener("click", () => {
+                nav.classList.toggle("active");
+                hamburger.classList.toggle("active");
+            });
+
+            // fermer si on clique ailleurs
+            document.addEventListener("click", (e) => {
+                if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                    navMenu.classList.remove("active");
+                    hamburger.classList.remove("active");
+                }
+            });
+        });
+    });
+    document.querySelectorAll(".nav a").forEach(link => {
+        link.addEventListener("click", () => {
+            nav.classList.remove("active");
+            hamburger.classList.remove("active");
+        });
+    });
+    </script>
+    <h1>NOS PLATS</h1>
+    <p>Parcourez notre menu et choissisez le plat qui vous convient</p>
+<img src="/images/menu.png" alt="menu" class="menu">
+    <p>Vous avez déjà choisi? nice</p>
+    <p>Contactez-nous pour passer une commande</p>
+    <a href="/Contact.html" class="cta">Contactez-nous</a>
+    <p>ou</p>
+    <a href="/index.html" class="cta">Retourner à la page d'acceuil</a>
+</body>
+</html>

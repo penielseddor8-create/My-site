@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceuil</title>
+    <link rel="stylesheet" href="body.css">
+</head>
+<body class="home">
+    <div id="header"></div>
+    <script>
+    fetch("header.html")
+        .then(response=>response.text())
+        .then(data =>{
+            document.getElementById("header").innerHTML=data;
+        });
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+    fetch("header.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("header").innerHTML = data;
+
+            const hamburger = document.getElementById("hamburger");
+            const nav = document.getElementById("nav");
+
+            hamburger.addEventListener("click", () => {
+                nav.classList.toggle("active");
+                hamburger.classList.toggle("active");
+            });
+
+            // fermer si on clique ailleurs
+            document.addEventListener("click", (e) => {
+                if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                    navMenu.classList.remove("active");
+                    hamburger.classList.remove("active");
+                }
+            });
+        });
+    });
+    document.querySelectorAll(".nav a").forEach(link => {
+        link.addEventListener("click", () => {
+            nav.classList.remove("active");
+            hamburger.classList.remove("active");
+        });
+    });
+    </script>
+    <h2>Bienvenu sur notre site</h2>
+    <main class="main">
+        
+        <p>Vous avez un creux mais n'avez pas de plan de cuisine?</p> <br>
+        <p>Ne vous inquietez pas, nous avons pensé à vous.</p> <br>
+        <p>Parcourez notre menu et choisissez le ou les plat(s) qui vous conviennent le mieux en cliquant sur le lien ci-dessous</p>
+        <a href="Menu du jour.html" class="cta">Parcourir le menu</a>
+    
+    </main>
+
+</body>
+</html>

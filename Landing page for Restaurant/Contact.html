@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="body.css">
+</head>
+<body class="num">
+    <div id="header"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    fetch("header.html")
+        .then(response=>response.text())
+        .then(data => {
+            document.getElementById("header").innerHTML=data;
+        });});
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    
+    fetch("header.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("header").innerHTML = data;
+
+            const hamburger = document.getElementById("hamburger");
+            const nav = document.getElementById("nav");
+
+            hamburger.addEventListener("click", () => {
+                nav.classList.toggle("active");
+                hamburger.classList.toggle("active");
+            });
+
+            // fermer si on clique ailleurs
+            document.addEventListener("click", (e) => {
+                if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                    navMenu.classList.remove("active");
+                    hamburger.classList.remove("active");
+                }
+            });
+        });
+    });
+    document.querySelectorAll(".nav a").forEach(link => {
+        link.addEventListener("click", () => {
+            nav.classList.remove("active");
+            hamburger.classList.remove("active");
+        });
+    });
+    </script>
+    <main>
+        <h2>voulez-vous nous contacter ou passer votre commande?</h2> <br>
+        
+    <article class="part">
+        <h3>Vous pouvez nous contacter par les moyens suivants :</h3>
+    <ul>
+    
+        <li>Email: contact@restaurant.com</li>
+        <li> <a href="https://wa.me/22896614196?text=Bonjour%20!%20Je%20voudrais%20passer%20une%20commande." target="_blank" class="w-cta">passez ma commande</a></li>
+        <li>Adress: Nous sommes situé à <em>Zanguéra après le marché en allant vers la douane</em></li>
+    </ul>
+    </article>
+    </main>
+</body>
+</html>

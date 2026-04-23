@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A propos</title>
+    <link rel="stylesheet" href="body.css">
+</head>
+<body class="about">
+    <div id="header"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    fetch("header.html")
+        .then(response=>response.text())
+        .then(data => {
+            document.getElementById("header").innerHTML=data;
+        });});
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    
+    fetch("header.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("header").innerHTML = data;
+
+            const hamburger = document.getElementById("hamburger");
+            const nav = document.getElementById("nav");
+
+            hamburger.addEventListener("click", () => {
+                nav.classList.toggle("active");
+                hamburger.classList.toggle("active");
+            });
+
+            // fermer si on clique ailleurs
+            document.addEventListener("click", (e) => {
+                if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                    navMenu.classList.remove("active");
+                    hamburger.classList.remove("active");
+                }
+            });
+        });
+    });
+    document.querySelectorAll(".nav a").forEach(link => {
+        link.addEventListener("click", () => {
+            nav.classList.remove("active");
+            hamburger.classList.remove("active");
+        });
+    });
+    </script>
+<article class="article">
+    <H1>A PROPOS DE NOUS</H1>
+    <P>Nous sommes un restaurants créée juste pour vous rassasiez et faire le plaisir de votre ventre</P>
+    <p>Vous avez faim? Vous êtes au bon endroit</p>
+    <p>vous avez un manque d'appetit? Nos chefs et leurs platsvous donneront une  faim de loup</p>
+    <p>Avez vous soif? Nous avons de quoi vous rafraichir:</p>
+    <p>Alors qu'attendez vous?</p>
+    <p>Nous sommes situé à <em>Zanguéra après le marché en allant vers la douane</em></p>
+</article>
+</body>
+</html>
